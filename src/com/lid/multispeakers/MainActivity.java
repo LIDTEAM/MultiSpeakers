@@ -1,9 +1,12 @@
 package com.lid.multispeakers;
 
 import android.app.Activity;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.media.MediaPlayer;
+
 
 public class MainActivity extends Activity {
 
@@ -32,3 +35,13 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 }
+
+private MediaPlayer mMediaPlayer;
+
+private void play() {
+    mMediaPlayer = new MediaPlayer();
+    mMediaPlayer.setDataSource(getSongUrl());
+    mMediaPlayer.prepare();
+    mMediaPlayer.start();
+}
+
