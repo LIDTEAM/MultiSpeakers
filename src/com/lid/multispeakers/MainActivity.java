@@ -43,11 +43,7 @@ public class MainActivity extends Activity {
 	      b2 = (Button) findViewById(R.id.button2);
 	      b3 =(Button)findViewById(R.id.button3);
 	      
-	      iv =(TextView)findViewById(R.id.imageView);
-	      
-	      tx1=(TextView)findViewById(R.id.textView2);
-	      tx2=(TextView)findViewById(R.id.textView3);
-	      tx3=(TextView)findViewById(R.id.textView4);
+	      tx3=(TextView)findViewById(R.id.textview2);
 	      tx3.setText("Song.mp3");
 		 
 
@@ -69,20 +65,8 @@ public class MainActivity extends Activity {
 	                seekbar.setMax((int) finalTime);
 	                oneTimeOnly = 1;
 	             }
-	             tx2.setText(String.format("%d min, %d sec",
-	             TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
-	             TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
-	             TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) finalTime)))
-	             );
-	             
-	             tx1.setText(String.format("%d min, %d sec",
-	             TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-	             TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-	             TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) startTime)))
-	             );
-	             
-	             seekbar.setProgress((int)startTime);
-	             myHandler.postDelayed(UpdateSongTime,100);
+	       
+	      
 	             b2.setEnabled(true);
 	             b3.setEnabled(false);
 	          }
@@ -106,13 +90,7 @@ public class MainActivity extends Activity {
 	private Runnable UpdateSongTime = new Runnable() {
 	      public void run() {
 	         startTime = mediaPlayer.getCurrentPosition();
-	         tx1.setText(String.format("%d min, %d sec",
-	         
-	         TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-	         TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-	         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
-	         toMinutes((long) startTime)))
-	         );
+	
 	         seekbar.setProgress((int)startTime);
 	         myHandler.postDelayed(this, 100);
 	      }
